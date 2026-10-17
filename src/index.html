@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video • Downloader</title>
+  <meta name="description" content="Download Videos & Audio in One Place">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="icon" type="image/png" href="../resources/mostakim.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="./" aria-label="MOSTAKIM Video Downloader home">
+      <img src="../resources/mostakim.png" alt="M" width="38" height="38">
+      <span>M-<b>TUBE</b></span>
+    </a>
+  </header>
 
+  <main class="container">
+    <section class="hero">
+      <span class="badge"><i class="fa-solid fa-bolt"></i> POWERED BY MOSTAKIM LAB'S</span>
+      <h1>All-in-One Video Downloader</h1>
+      <p>Download Videos &amp; Audio in One Place</p>
+
+      <form id="form" class="card input-card" novalidate>
+        <label for="url" class="sr-only">Video URL</label>
+        <div class="field">
+          <i class="fa-solid fa-link"></i>
+          <input id="url" type="url" inputmode="url" autocomplete="off" placeholder="Paste a video link here ">
+          <button type="button" id="clear" class="icon-btn" aria-label="Clear" hidden><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="actions">
+          <button type="button" id="paste" class="btn ghost"><i class="fa-solid fa-paste"></i> Paste</button>
+          <button type="submit" id="submit" class="btn primary"><i class="fa-solid fa-download"></i> <span>Download</span></button>
+        </div>
+      </form>
+
+      <ul class="features" aria-label="Features">
+        <li><i class="fa-solid fa-video"></i> </li>
+        <li><i class="fa-solid fa-music"></i> </li>
+        <li><i class="fa-solid fa-gauge-high"></i> </li>
+        <li><i class="fa-solid fa-shield-halved"></i> </li>
+      </ul>
+
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <section id="loader" class="loader" hidden aria-hidden="true"><span class="spinner"></span><p>Fetching media…</p></section>
+
+    <section id="steps" class="steps">
+      <div><b>1</b><span>Copy video link</span></div>
+      <div><b>2</b><span>Paste &amp; press Download</span></div>
+      <div><b>3</b><span>Choose video or audio</span></div>
+    </section>
+
+    <section id="empty" class="empty"><i class="fa-regular fa-circle-play"></i><p>Paste a link above to see available video and audio downloads.</p></section>
+
+    <section id="result" class="card result" hidden>
+      <div class="preview">
+        <div class="thumb"><img id="thumb" alt="" hidden><i id="thumbFallback" class="fa-solid fa-film"></i></div>
+        <div class="meta">
+          <h2 id="title"></h2>
+          <ul id="info" class="chips"></ul>
+        </div>
+      </div>
+      <div id="videos" class="group" hidden><h3><i class="fa-solid fa-video"></i> Video</h3><ul class="list"></ul></div>
+      <div id="audios" class="group" hidden><h3><i class="fa-solid fa-music"></i> Audio</h3><ul class="list"></ul></div>
+      <div id="others" class="group" hidden><h3><i class="fa-solid fa-file"></i> Other</h3><ul class="list"></ul></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="../resources/mostakim.png" alt="" width="22" height="22">
+    <span>&copy; <span id="year"></span> M-TUBE &middot; POWERED BY MOSTAKIM LAB'S</span>
+  </footer>
+
+  <div id="toast" class="toast" role="alert" hidden></div>
+  <script src="setting.js"></script>
+</body>
+</html>
